@@ -20,7 +20,7 @@ const spriteRequest = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/
 
 $.get(spriteRequest)
 $('main').append(
-  "<h3 class='question'>What Pokemon is this?</h3><img src=" + spriteRequest + " class='sprite'><br>"
+  "<h3 class='question'>Who's that Pokemon?</h3><img src=" + spriteRequest + " class='sprite'><br>"
 )
 
 getPokemon();
