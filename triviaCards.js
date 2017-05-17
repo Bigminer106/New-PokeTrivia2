@@ -1,5 +1,5 @@
 var randomGen = Math.floor(
-  (Math.random() * 721) + 1);
+  (Math.random() * 151) + 1);
 var newRandom1 = Math.floor(
   (Math.random() * 721) + 1);
 var newRandom2 = Math.floor(
@@ -75,9 +75,6 @@ function getPokemon() {
       $('h3').remove();
       $('.Next').remove();
       $('.right-wrong').append('<h4>Incorrect...</h4>')
-      $('.right-wrong').append('<a href="triviaCards.html"><button type="button" class="Next">Next Question</button></a>')
     });
   })
 }
-
-// STRETCH--Iterate over x number of questions
