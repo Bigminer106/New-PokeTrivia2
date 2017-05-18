@@ -54,7 +54,7 @@ function showNextPokemon () {
         "<button type='button' class='incorrect'>" + otherName2.toUpperCase() + "</button>",
         "<button type='button' class='incorrect'>" + otherName3.toUpperCase() + "</button>"
       ];
-
+    if (totalScore < 10) {
       $('main').append("<h3 class='question'>Who's that Pokemon?</h3><img src=" + spriteRequest + " class='sprite'><br>")
 
       var button1Index = Math.floor(Math.random() * buttons.length);
@@ -94,12 +94,12 @@ function showNextPokemon () {
         })
         $('.right-wrong').append(nextButton)
       });
-    });
-  }
-  if (totalScore === 10) {
-    noMain;
-    noSection;
-    newMain.append("<h3>You Finished!</h3>");
+    } else {
+      noMain;
+      noSection;
+      newMain.append("<h3>You Finished!</h3>");
+    }
+  })
   }
 };
 
