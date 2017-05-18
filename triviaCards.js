@@ -1,4 +1,14 @@
 var totalScore = 0;
+// $(document).load(function () {
+//   ajaxStart();
+//   ajaxStop();
+//   function ajaxStart() {
+//     $('div').addClass('loading')
+//   }
+//   function ajaxStop() {
+//     $('div').removeClass('loading')
+//   }
+// });
 function showNextPokemon () {
 
   $('main').empty();
