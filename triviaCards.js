@@ -15,6 +15,10 @@ function showNextPokemon () {
   var otherName3;
   var pokeId;
 
+  var noMain = $('main').empty();
+  var noSection = $('section').empty();
+  var newMain = $('main')
+
   const apiRequest = 'https://pokeapi.co/api/v2/pokemon/' + randomGen;
   const newRequest1 = 'https://pokeapi.co/api/v2/pokemon/' + newRandom1
   const newRequest2 = 'https://pokeapi.co/api/v2/pokemon/' + newRandom2
@@ -76,7 +80,7 @@ function showNextPokemon () {
         nextButton.click(function() {
           showNextPokemon();
         })
-        $('.right-wrong').append(nextButton)
+        $('.right-wrong').append(nextButton);
       })
 
       $('.incorrect').click(function() {
@@ -92,5 +96,11 @@ function showNextPokemon () {
       });
     });
   }
+  if (totalScore === 10) {
+    noMain;
+    noSection;
+    newMain.append("<h3>You Finished!</h3>");
+  }
+};
 
 showNextPokemon();
