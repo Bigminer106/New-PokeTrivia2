@@ -1,15 +1,14 @@
 var totalScore = 0;
 function showNextPokemon () {
+
   $('main').empty();
   $('.right-wrong').empty();
-  var randomGen = Math.floor(
-    (Math.random() * 151) + 1);
-  var newRandom1 = Math.floor(
-    (Math.random() * 721) + 1);
-  var newRandom2 = Math.floor(
-    (Math.random() * 721) + 1);
-  var newRandom3 = Math.floor(
-      (Math.random() * 721) + 1);
+
+  var randomGen = Math.floor((Math.random() * 151) + 1);
+  var newRandom1 = Math.floor((Math.random() * 251) + 1);
+  var newRandom2 = Math.floor((Math.random() * 251) + 1);
+  var newRandom3 = Math.floor((Math.random() * 251) + 1);
+
   var pokeName;
   var otherName1;
   var otherName2;
@@ -23,6 +22,7 @@ function showNextPokemon () {
   const spriteRequest = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + randomGen + '.png';
 
   $.get(spriteRequest)
+
   $('main').append(
     "<h3 class='question'>Who's that Pokemon?</h3><img src=" + spriteRequest + " class='sprite'><br>"
   )
@@ -91,15 +91,17 @@ function showNextPokemon () {
         })
         $('.right-wrong').append(nextButton)
       });
-    })
+    });
   }
+  if (totalScore == 10) {
+    var doneMessage = function() {
+      var done = $('main').append("<h3>You finished!  Good job!</h3>")
+      $('main').empty();
+      $('.right-wrong').empty();
+      return done;
+    }
+  }
+  return;
 }
 
 showNextPokemon();
-reset();
-
-function reset() {
-  $('.Reset').click(function() {
-    totalScore = 0;
-  })
-}
