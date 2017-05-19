@@ -98,11 +98,7 @@ function showNextPokemon () {
         $('h3').remove();
         $('.Next').remove();
         $('.right-wrong').append('<h4>Incorrect...</h4>')
-        var nextButton = $('<button type="button" class="Next">Next Question</button>')
-        nextButton.click(function() {
-          showNextPokemon();
         })
-        $('.right-wrong').append(nextButton)
       });
     } else {
       noMain;
