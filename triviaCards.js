@@ -14,7 +14,7 @@ function showNextPokemon () {
   $('main').empty();
   $('.right-wrong').empty();
 
-  var randomGen = Math.floor((Math.random() * 151) + 1);
+  var randomGen = Math.floor((Math.random() * 251) + 1);
   var newRandom1 = Math.floor((Math.random() * 251) + 1);
   var newRandom2 = Math.floor((Math.random() * 251) + 1);
   var newRandom3 = Math.floor((Math.random() * 251) + 1);
