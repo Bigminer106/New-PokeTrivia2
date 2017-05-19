@@ -14,7 +14,7 @@ function showNextPokemon () {
   $('main').empty();
   $('.right-wrong').empty();
 
-  var randomGen = Math.floor((Math.random() * 251) + 1);
+  var randomGen = Math.floor((Math.random() * 151) + 1);
   var newRandom1 = Math.floor((Math.random() * 251) + 1);
   var newRandom2 = Math.floor((Math.random() * 251) + 1);
   var newRandom3 = Math.floor((Math.random() * 251) + 1);
@@ -45,7 +45,7 @@ function showNextPokemon () {
       $.get(newRequest1),
       $.get(newRequest2),
       $.get(newRequest3)
-    ]).then(function(results) {
+    ]).then(function (results) {
       var data = results[0];
       var newData1 = results[1];
       var newData2 = results[2];
@@ -79,7 +79,7 @@ function showNextPokemon () {
       var button4Index = Math.floor(Math.random() * buttons.length);
       $('main').append(buttons[button4Index])
 
-      $('.option1').click(function() {
+      $('.option1').click(function () {
         $('h3').remove();
         $('h4').remove();
         $('.Next').remove();
@@ -87,18 +87,22 @@ function showNextPokemon () {
         var nextButton = $('<button type="button" class="Next">Next Question</button>')
         totalScore++
         $('#totalScore').text(totalScore);
-        nextButton.click(function() {
+        nextButton.click(function () {
           showNextPokemon();
         })
         $('.right-wrong').append(nextButton);
       })
 
-      $('.incorrect').click(function() {
+      $('.incorrect').click(function () {
         $('h4').remove();
         $('h3').remove();
         $('.Next').remove();
         $('.right-wrong').append('<h4>Incorrect...</h4>')
+        var nextButton = $('<button type="button" class="Next">Next Question</button>')
+        nextButton.click(function () {
+          showNextPokemon();
         })
+        $('.right-wrong').append(nextButton)
       });
     } else {
       noMain;
