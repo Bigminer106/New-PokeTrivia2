@@ -5,9 +5,9 @@ $(document).ready(() => {
     $('.right-wrong').empty();
 
     const randomGen = Math.floor((Math.random() * 151) + 1);
-    const newRandom1 = Math.floor((Math.random() * 251) + 1);
-    const newRandom2 = Math.floor((Math.random() * 251) + 1);
-    const newRandom3 = Math.floor((Math.random() * 251) + 1);
+    const newRandom1 = Math.floor((Math.random() * 151) + 1);
+    const newRandom2 = Math.floor((Math.random() * 151) + 1);
+    const newRandom3 = Math.floor((Math.random() * 151) + 1);
     
     let pokeName;
     let otherName1;
@@ -32,7 +32,8 @@ $(document).ready(() => {
         $.get(newRequest1),
         $.get(newRequest2),
         $.get(newRequest3)
-      ]).then(results => {
+      ])
+      .then(results => {
           let data = results[0];
           let newData1 = results[1];
           let newData2 = results[2];
