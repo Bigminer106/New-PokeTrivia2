@@ -34,60 +34,90 @@ $(document).ready(() => {
         $.get(newRequest3)
       ])
       .then(results => {
-          let data = results[0];
-          let newData1 = results[1];
-          let newData2 = results[2];
-          let newData3 = results[3];
-          pokeName = data.name;
-          pokeId = data.id;
-          otherName1 = newData1.name;
-          pokeId = newData1.id;
-          otherName2 = newData2.name;
-          pokeId = newData2.id;
-          otherName3 = newData3.name;
-          pokeId = newData3.id;
-          let firstName = pokeName.toUpperCase();
-          let secondName = otherName1.toUpperCase();
-          let thirdName = otherName2.toUpperCase();
-          let fourthName = otherName3.toUpperCase();
-          const buttons = [
-            `<button type='button' class='correct'>${firstName}</button>`,
-            `<button type='button' class='correct'>${secondName}</button>`,
-            `<button type='button' class='correct'>${thirdName}</button>`,
-            `<button type='button' class='correct'>${fourthName}</button>`
-          ];
+        let data = results[0];
+        let newData1 = results[1];
+        let newData2 = results[2];
+        let newData3 = results[3];
+
+        pokeName = data.name;
+        pokeId = data.id;
+        otherName1 = newData1.name;
+        pokeId = newData1.id;
+        otherName2 = newData2.name;
+        pokeId = newData2.id;
+        otherName3 = newData3.name;
+        pokeId = newData3.id;
+
+        let firstName = pokeName.toUpperCase();
+        let secondName = otherName1.toUpperCase();
+        let thirdName = otherName2.toUpperCase();
+        let fourthName = otherName3.toUpperCase();
+
+        const buttons = [
+          `<button type='button' class='correct'>${firstName}</button>`,
+          `<button type='button' class='correct'>${secondName}</button>`,
+          `<button type='button' class='correct'>${thirdName}</button>`,
+          `<button type='button' class='correct'>${fourthName}</button>`
+        ];
+        
         if (totalScore < 10) {
+
           $(document).ready(() => {
             $('#loader').hide();
           });
+
           let question = "Who's that Pokemon?";
+
           let spriteCall = spriteRequest;
+
           $('main').append(`<h3 class='question'>${question}</h3><img src=${spriteCall} class='sprite'><br>`);
+
           const button1Index = Math.floor(Math.random() * buttons.length);
+
           $('.buttons').append(buttons[button1Index])
+
           buttons.splice(button1Index, 1);
+
           const button2Index = Math.floor(Math.random() * buttons.length);
+
           $('.buttons').append(buttons[button2Index])
+
           buttons.splice(button2Index, 1);
+
           const button3Index = Math.floor(Math.random() * buttons.length);
+
           $('.buttons').append(buttons[button3Index])
+
           buttons.splice(button3Index, 1);
+
           const button4Index = Math.floor(Math.random() * buttons.length);
+
           $('.buttons').append(buttons[button4Index]);
+
           $('.correct').click(() => {
             $('h3').remove();
+
             $('h4').remove();
+
             $('.Next').remove();
-            $('.right-wrong').append('<h3>CORRECT!</h3>')
+
+            $('.right-wrong').append('<h3>CORRECT!</h3>');
+
             const nextButton = $('<button type="button" class="Next">Next Question</button>');
+
             totalScore ++;
+
             $('#totalScore').text(totalScore);
+
             nextButton.click(() => {
               $('#loader').show();
               showNextPokemon();
             });
+
             $('.right-wrong').append(nextButton);
+
           });
+
           $('.incorrect').click(() => {
             $('h4').remove();
             $('h3').remove();
